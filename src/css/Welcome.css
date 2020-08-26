@@ -1,0 +1,95 @@
+.Welcome__icon    {
+    color: #fff !important;
+    width: 25px !important;
+    height: 25px !important;
+}
+.Welcome__details_text   {
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;  
+}
+.Welcome__login  {
+}
+
+.Welcome__msg1   {
+    font-size: 30px;
+    font-weight: 700;
+}
+.Welcome__msg2   {
+    font-size: 15.Welcome__5px;
+    font-weight: 700;
+    margin: 50px 0 15px 0;
+}
+td  {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.Welcome__sign_up_btn    {
+    background-color: var(--twitter-dark) !important;
+    color: white !important;
+    font-weight: 600 !important;
+    height: 40px !important;
+    border: none !important;
+    border-radius: 30px !important;
+    margin: 0 0 0 0 !important;
+}
+.Welcome__login_btn  {
+    background-color: white !important;
+    color: var(--twitter-dark) !important;
+    font-weight: 600 !important;
+    height: 40px !important;
+    border-color: var(--twitter-dark) !important;
+    border-radius: 30px !important;
+    margin: 10px 0 0 0 !important;
+}
+@media only screen and (max-width: 800px)   {
+    .Welcome__details_panel  {
+        background-color: var(--twitter-login-med);     
+        width: 100vw;  
+        min-width: 100vw;
+        height: 50vh;
+        min-height: 50vh;
+    }
+    .Welcome__action_panel   {
+        width: 100vw;  
+        min-width: 100vw;
+        height: 50vh;
+        min-height: 50vh;
+    }
+    .Welcome__twitter_logo_lg    {
+     
+    }
+    .Welcome__details_list   {
+       
+    }
+}
+
+@media only screen and (min-width: 800px)   {
+    .Welcome__details_panel  {        
+       background-color: var(--twitter-login-med);
+       min-width: 50vw;
+       width: 50vw;
+       min-height: 100vh;
+       height: 100vh;
+       display: flex;
+    }
+    .Welcome__action_panel   {
+        min-width: 50vw;
+        width: 50vw;
+        min-height: 100vh;
+        height: 100vh;
+        display: flex;
+    }
+    .Welcome__twitter_logo_lg    {
+      position: absolute;
+      z-index: 1;
+    }
+    .Welcome__details_list   {
+        margin: auto;
+        position: relative;
+        z-index: 2;
+    }
+    .Welcome__action_content {
+        margin: auto 20%;        
+    }
+}

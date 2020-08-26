@@ -1,0 +1,19 @@
+body  {
+  --twitter-input: #f5f8fa;
+  --twitter-input-text: #78746b;
+  --twitter-input-border: #706868;
+  --twitter-bg: #e6ecf0;
+  --twitter-light: #50b7f5;
+  --twitter-dark: #1DA1F2;
+  --twitter-login-light: #9fd7fa;  
+  --twitter-login-med: #6ec7f6; 
+  --twitter-login-dark: #1da1f2; 
+}
+.twitter_logo_sm    {
+  width: 40px;
+  height: 40px;
+}
+.twitter_toast  {
+  background: var();
+  color: white;
+}
