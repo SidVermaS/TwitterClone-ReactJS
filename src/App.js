@@ -31,16 +31,16 @@ function App(props) {
     props.fetch()
   },[])
   return (
-    <div>
+    <div style={{display: "flex"}}>
       <Sidebar  />
-      <Switch>       
-        <SecuredRoute exact path="/" component={Home} profileData={props.profile}></SecuredRoute>
-        
-        <UnsecuredRoute path="/welcome" component={Welcome} profileData={props.profile} ></UnsecuredRoute>
-        <UnsecuredRoute path="/login" component={Login} profileData={props.profile} ></UnsecuredRoute>
-        <UnsecuredRoute path="/register" component={Register} profileData={props.profile}></UnsecuredRoute>
-        
-      </Switch>
+        <Switch>       
+          <SecuredRoute exact path="/" component={Home} profileData={props.profile}></SecuredRoute>
+          
+          <UnsecuredRoute path="/welcome" component={Welcome} profileData={props.profile} ></UnsecuredRoute>
+          <UnsecuredRoute path="/login" component={Login} profileData={props.profile} ></UnsecuredRoute>
+          <UnsecuredRoute path="/register" component={Register} profileData={props.profile}></UnsecuredRoute>
+          
+        </Switch>
     </div> 
   )
 }
