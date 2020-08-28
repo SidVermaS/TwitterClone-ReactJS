@@ -1,13 +1,5 @@
-.SidebarItem__icon   {
-    width: 27px;
-    height: 27px;
-    margin: 0 0 5px 20px;
-}
-.SidebarItem__active_icon g  {
-    fill: var(--twitter-dark);
- }
 .SidebarItem    {
-    padding: 10px 0 10px 0;    
+    padding: 10px 0px 10px 20px;    
 }
 .SidebarItem:hover {
     background: #e8f5fe;
@@ -22,16 +14,24 @@
 .SidebarItem:hover g   {
     fill: var(--twitter-dark);
 }
+.SidebarItem__icon   {
+    width: 27px;
+    height: 27px;
+    margin: 0 0 5px 0px;
+}
+.SidebarItem__active_icon g  {
+    fill: var(--twitter-dark);
+ }
+
 .SidebarItem__title {
     /* padding-right: 20px; */
-    margin: 0 20px 0 20px;
+    margin: 0 0px 0 20px;
     font-weight: 700;
     font-size: 19px;
 }
 .SidebarItem__title--active {
     color: var(--twitter-dark);
 }
-
 
 
 

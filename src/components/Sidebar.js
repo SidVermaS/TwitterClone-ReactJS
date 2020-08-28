@@ -41,12 +41,12 @@ function Sidebar(props) {
             active_icon: ExploreActive,
             path: '/explore',
         },
-        {
-            title: 'Search',
-            icon: Search,
-            active_icon: SearchActive,
-            path: '/search',
-        },
+        // {
+        //     title: 'Search',
+        //     icon: Search,
+        //     active_icon: SearchActive,
+        //     path: '/search',
+        // },
          {
             title: 'Notifications',
             icon: Notifications,

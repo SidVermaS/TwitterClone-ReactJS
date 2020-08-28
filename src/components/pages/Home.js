@@ -4,7 +4,7 @@ function Home(props)   {
     useEffect((props1)=>  {
     },[])
     return (
-        <div>
+        <div className="Home__bg">
             <h1>
                 Home
             </h1>
