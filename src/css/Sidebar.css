@@ -1,6 +1,6 @@
 .Sidebar__bg    {
-    border-right: 1px solid #D3D3D3;
-    padding: 10px 50px 18px 40px;
+    border-right: 1px solid #e2dfdf;
+    padding: 10px 33px 18px 40px;
     height: 100vh;
 }
 .Sidebar__twitter_logo  {
@@ -14,16 +14,24 @@
     border-radius: 20px;
     cursor: pointer;
 }
+.Sidebar__tweet_btn {
+    background: var(--twitter-dark);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 13px 0 13px 0;    
+    width: 225px;
+    margin: 10px 0 0 15px;
+}
+
+.Sidebar__tweet_btn:hover   {
+    color: white;
 
 
 
-
-
-
-
-
-
-
+}
 
 
 

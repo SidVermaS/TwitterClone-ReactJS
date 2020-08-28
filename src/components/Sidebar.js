@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
+
 import SidebarItem from './SidebarItem'
 import {ReactComponent as TwitterLogoSm } from '../assets/images/twitter_logo_sm.svg'
 
@@ -31,46 +33,55 @@ function Sidebar(props) {
             title: 'Home',
             icon: Home,
             active_icon: HomeActive,
+            path: '/',
         },
         {
             title: 'Explore',
             icon: Explore,
             active_icon: ExploreActive,
+            path: '/explore',
         },
         {
             title: 'Search',
             icon: Search,
             active_icon: SearchActive,
+            path: '/search',
         },
          {
             title: 'Notifications',
             icon: Notifications,
             active_icon: NotificationsActive,
+            path: '/notifications',
         }, 
         {
             title: 'Messages',
             icon: Messages,
             active_icon: MessagesActive,
+            path: '/messages',
         }, 
         {
             title: 'Bookmarks',
             icon: Bookmarks,
             active_icon: BookmarksActive,
+            path: '/bookmarks',
         }, 
         {
             title: 'Lists',
             icon: Lists,
             active_icon: ListsActive,
+            path: '/lists',
         },
         {
             title: 'Profile',
             icon: Profile,
             active_icon: ProfileActive,
+            path: '/profile',
         }, 
         {
             title: 'More',
             icon: More,
             active_icon: More,
+            path: '/more',
         },
     ]
     const [selectedIndex, setSelectedIndex]=useState(0)
@@ -80,10 +91,10 @@ function Sidebar(props) {
             <TwitterLogoSm className="Sidebar__twitter_logo"  />
             
             {
-                items.map((item, index)=><SidebarItem item={item} index={index} selectedIndex={selectedIndex} />)
+                items.map((item, index)=><div key={index}><SidebarItem item={item} index={index} selectedIndex={selectedIndex} /></div>)
             }
 
-
+            <button className="btn btn-block Sidebar__tweet_btn">Tweet</button>
 
 
 

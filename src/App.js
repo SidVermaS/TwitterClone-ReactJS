@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Switch, Route, Redirect, } from 'react-router-dom'
 import { connect } from 'react-redux'
 
@@ -8,9 +8,36 @@ import Login from './components/pages/Login'
 import Register from './components/pages/Register'
 import Sidebar from './components/Sidebar'
 import Home from './components/pages/Home'
+import Profile from './components/pages/Profile'
 
 import './App.css';
 
+const menuRoutes=[
+  {
+    path: '/',
+  },
+  {
+    path: '/explore',
+  },
+  {
+    path: '/search',
+  },
+  {
+    path: '/notifications',
+  },
+  {
+    path: '/messages',
+  },
+  {
+    path: '/bookmarks',
+  },
+  {
+    path: '/lists',
+  },
+  {
+    path: '/profile',
+  },
+]
 
 function SecuredRoute(props)    {
   useEffect((props1)=>  {
@@ -35,8 +62,9 @@ function App(props) {
     <div style={{display: "flex"}}>
       <Sidebar  />
         <Switch>       
-          <SecuredRoute exact path="/" component={Home} profileData={props.profile}></SecuredRoute>
-          
+          {/* <SecuredRoute exact path="/" component={Home} profileData={props.profile}></SecuredRoute> */}
+          <SecuredRoute path="/profile" component={Profile} profileData={props.profile}></SecuredRoute>
+
           <UnsecuredRoute path="/welcome" component={Welcome} profileData={props.profile} ></UnsecuredRoute>
           <UnsecuredRoute path="/login" component={Login} profileData={props.profile} ></UnsecuredRoute>
           <UnsecuredRoute path="/register" component={Register} profileData={props.profile}></UnsecuredRoute>
