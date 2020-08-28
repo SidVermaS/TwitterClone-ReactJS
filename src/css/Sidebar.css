@@ -1,12 +1,13 @@
 .Sidebar__bg    {
     border-right: 1px solid #D3D3D3;
-    padding: 15px 60px 15px 60px;
+    padding: 10px 50px 18px 40px;
     height: 100vh;
 }
 .Sidebar__twitter_logo  {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     border-radius: 20px;
+    margin: 0 0 15px 20px;
 }
 .Sidebar__twitter_logo:hover  {
     background-color: var(--twitter-login-light);
