@@ -8,11 +8,12 @@ body  {
   --twitter-login-light: #9fd7fa;  
   --twitter-login-med: #6ec7f6; 
   --twitter-login-dark: #1da1f2; 
+  --twitter-border:#e2dfdf;
 }
 .twitter_logo_sm    {
   width: 40px;
   height: 40px;
 }
 .App__main  {
-  flex: 0.5;
+  flex: 0.51;
 }

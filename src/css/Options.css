@@ -1,3 +1,38 @@
 .Options__bg    {
-    flex: 0.2;
+    flex: 0.28;    
+    height: 100vh;
+    
+    padding: 8px 50px 0px 27px;
 }
+.Options__search    {
+    display: flex;
+    align-items: center;
+    background: var(--twitter-bg);
+    padding: 9px 0px 9px 15px;
+    border-radius: 30px;
+    
+}
+.Options__search_icon   {
+    width: 20px;
+    height: 20px;
+    margin: 0px 15px 0 0px;
+}
+.Options__search_icon g {
+    width: 100%;
+    fill: gray;
+}
+.Options__search > input {
+    width: 250px;
+    margin: 0;
+    background: var(--twitter-bg);
+    outline: none;  
+    border: none;  
+    display: flex;
+    color: grey;
+    font-size: 15px;
+    font-weight: 400;
+
+}
+
+
+

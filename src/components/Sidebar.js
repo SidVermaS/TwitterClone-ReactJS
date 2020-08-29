@@ -87,7 +87,7 @@ function Sidebar(props) {
     const [selectedIndex, setSelectedIndex]=useState(0)
 
     return (
-        <div className="Sidebar__bg">
+        <div className="Sidebar__bg sticky-top">
             <TwitterLogoSm className="Sidebar__twitter_logo"  />
             
             {

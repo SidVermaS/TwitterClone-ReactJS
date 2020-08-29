@@ -68,15 +68,15 @@ function App(props) {
     <div style={{display: "flex"}}>
       <Sidebar  />
       <div className="App__main">
-      <Switch>       
-        <SecuredRoute exact path="/" component={Home} profile={profile}></SecuredRoute>
-        <SecuredRoute path="/profile" component={Profile} profile={profile}></SecuredRoute>
+        <Switch>       
+          <SecuredRoute exact path="/" component={Home} profile={profile}></SecuredRoute>
+          <SecuredRoute path="/profile" component={Profile} profile={profile}></SecuredRoute>
 
-        <UnsecuredRoute path="/welcome" component={Welcome} profile={profile} ></UnsecuredRoute>
-        <UnsecuredRoute path="/login" component={Login} profile={profile} ></UnsecuredRoute>
-        <UnsecuredRoute path="/register" component={Register} profile={profile}></UnsecuredRoute>
-        
-      </Switch>
+          <UnsecuredRoute path="/welcome" component={Welcome} profile={profile} ></UnsecuredRoute>
+          <UnsecuredRoute path="/login" component={Login} profile={profile} ></UnsecuredRoute>
+          <UnsecuredRoute path="/register" component={Register} profile={profile}></UnsecuredRoute>
+          
+        </Switch>
       </div>
       <Options  />
     </div> 

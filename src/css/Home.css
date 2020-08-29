@@ -1,3 +1,51 @@
 .Home__bg   {
-   
+    flex: 0.51;
+    border-left: 1px solid var(--twitter-border);
+    border-right: 1px solid var(--twitter-border);
+    height: 100%;
 }
+.Home__header   {
+    border-bottom: 1px solid var(--twitter-border);
+    font-weight: 900;
+    font-size: 20px;
+    padding: 10px 18px 10px 18px;
+    background: white;
+}
+.Home__content   {   
+    /* padding-top: 56px; */
+ }
+.Home__latest_tweets_icon  {
+    width: 22px;
+    height: 22px;
+}
+.Home__latest_tweets_icon g {
+    fill: var(--twitter-dark);
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
