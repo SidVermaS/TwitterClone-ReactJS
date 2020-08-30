@@ -71,6 +71,23 @@ class APICalls  {
             })
         })    
     }
+    postFormDataRequest=(url, formData)=>   {
+        return new Promise((resolve)=>  {
+            const options={
+                method: 'POST',
+                // headers: { 'Content-Type': 'multipart/form-data' },
+                body: formData               
+            }
+            fetch(`${this.baseUrl}${url}`, options).then(response=>    {
+                response.json().then(jsonData=> {
+                    resolve({ status: response.status, body: jsonData })
+                })
+                .catch(err=>    {
+                    return resolve(err)
+                })
+            })
+        })    
+    }
 }
 
 export default APICalls

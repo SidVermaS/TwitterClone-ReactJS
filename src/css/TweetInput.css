@@ -1,17 +1,58 @@
 .TweetInput__bg {
-    display: flex;
+    /* align-items: center; */
+    padding: 0 15px 10px 15px;
+    border-bottom: 10px solid var(--twitter-bg);;
 }
-.TweetInput__bg > textarea  {
+.TweetInput__photo > img   {
     width: 100%;
-    resize: none;
-    overflow: auto;
+    height: 300px;
+    border-radius: 20px;
 }
-
-
-
-
-
-
-
-
-
+.TweetInput__photo  {
+    padding: 0 5px 20px 60px;
+}
+.TweetInput__main   {
+    display: flex;
+    padding: 10px 0 0px 0;
+}
+.TweetInput__main > textarea  {
+    width: 100%;
+    margin: 10px 0 0px 15px;
+    padding: 0px 0 25px 0;
+    resize: none;
+    overflow: hidden;
+    outline: none;
+    border: none;
+}
+.TweetInput__main > textarea::placeholder  {
+    color: #a5a39e;
+    font-weight: 400;
+    font-size: 19px;
+}
+.TweetInput__actions    {
+    display: flex;
+    margin: 0 10px 0 65px;
+}
+.TweetInput__icon    {
+    width: 23px;
+    height: 23px;
+    color: var(--twitter-dark);
+    margin-right: 15px;
+}
+.TweetInput__icon g  {
+    fill: var(--twitter-dark);
+}
+.TweetInput__actions > button    {
+    background-color: var(--twitter-dark) !important;
+    color: white !important;
+    font-weight: 700 !important;
+    height: 40px !important;
+    outline: none !important;
+    border: none !important;
+    border-radius: 30px !important;
+    padding: 0 15px 0 15px;
+}
+.TweetInput__actions > button    {
+    outline: none !important;
+    border: none !important;
+}
