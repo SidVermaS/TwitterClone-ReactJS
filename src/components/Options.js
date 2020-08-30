@@ -6,7 +6,7 @@ import '../css/Options.css'
 
 function Options(props) {
     return (
-        <div className="Options__bg">
+        <div className="Options__bg sticky-top">
             <div className="Options__search sticky-top">
                 <Search className="Options__search_icon" />
                 <input type="text" placeholder="Search Twitter"  />

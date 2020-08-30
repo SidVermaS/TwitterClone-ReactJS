@@ -10,6 +10,9 @@ class APICalls  {
     }
     headers
     baseUrl='http://localhost:5000/'
+    baseUrlTweetPhoto='http://localhost:5000/uploads/tweets/'
+    baseUrlProfilePhoto='http://localhost:5000/uploads/profiles/'
+    baseUrlListPhoto='http://localhost:5000/uploads/lists/'
     login='login/' 
     register='register/'
     tweet='tweet/'

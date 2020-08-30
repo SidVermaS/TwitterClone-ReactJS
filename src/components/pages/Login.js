@@ -7,7 +7,7 @@ import * as yup from 'yup'
 import { save, fetch } from '../../actions/profileActions'
 import APICalls from '../../networks/APICalls'
 
-import Toast from '../Toast'
+import Toast from '../widgets/Toast'
 import {ReactComponent as TwitterLogoSm } from '../../assets/images/twitter_logo_sm.svg'
 import '../../css/Login.css'
 

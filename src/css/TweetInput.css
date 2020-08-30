@@ -1,0 +1,17 @@
+.TweetInput__bg {
+    display: flex;
+}
+.TweetInput__bg > textarea  {
+    width: 100%;
+    resize: none;
+    overflow: auto;
+}
+
+
+
+
+
+
+
+
+
