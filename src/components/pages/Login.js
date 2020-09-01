@@ -79,10 +79,10 @@ function Login(props)    {
             console.log(`~~~ au: ${body['profile']}`)
             body['profile']['authorization']=`bearer ${body['profile']['authorization']}`
             props.save(body['profile'])
-        }   else    {
+        }
+        if(body['message']) {
             messageRef.current.displayToast(body['message'])
         }
-
     }
 }
 

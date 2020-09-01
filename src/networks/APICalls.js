@@ -75,7 +75,7 @@ class APICalls  {
         return new Promise((resolve)=>  {
             const options={
                 method: 'POST',
-                // headers: { 'Content-Type': 'multipart/form-data' },
+                // headers: { 'Content-Type': 'multipart/form-data' },                
                 body: formData               
             }
             fetch(`${this.baseUrl}${url}`, options).then(response=>    {

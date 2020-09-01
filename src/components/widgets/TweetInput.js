@@ -16,10 +16,12 @@ import '../../css/TweetInput.css'
 
 function TweetInput(props)  {
     const apiCalls=new APICalls({ profile: props.profile })
-    const fileRef=useRef(null)
-    const messageRef=useRef()
-    const [photoFile, setPhotoFile]=useState(null)
-    const [photoUrl, setPhotoUrl]=useState(null)
+
+    const fileRef=useRef(null), messageRef=useRef()
+
+    const [photoFile, setPhotoFile]=useState(null),
+    [photoUrl, setPhotoUrl]=useState(null),
+    [text, setText]=useState('')
 
     const selectImage=()=>  {
         fileRef.current.click()
@@ -30,28 +32,48 @@ function TweetInput(props)  {
         if(e.target.files[0])   {
             setPhotoUrl(URL.createObjectURL(e.target.files[0]))
             console.log('url: ',photoUrl, ' photoFile: ',photoFile)
-        }    
+        }   else    {
+            setPhotoUrl(null)
+        }
     }
     const uploadPhoto=async ()=>    {
-        const formData=FormData()
+        const formData=new FormData()
         formData.append('file', photoFile)
-        const { status, body }=await apiCalls.postFormDataRequest(formData)
+        const { status, body }=await apiCalls.postFormDataRequest(`${apiCalls.upload}?file_type=tweets`,formData)
         if(status===201)    {
 
-        }   else    {
-            messageRef.current.displayToast(body['message'])
+        }   else    {  
+            if(body['message']) {
+                messageRef.current.displayToast(body['message'])
+            }
         }
         return body['photo_url']
     }
     const submitTweet=async ()=>  {
-        
+        const formData={
+            profile_id: props.profile._id,
+            text: text,            
+        }
+        if(photoFile)   {
+            formData.photo_url_tweet=await uploadPhoto()            
+        }
+        if((photoFile && formData.photo_url_tweet) || !photoFile)   {
+            const { status, body }=await apiCalls.postRequest(apiCalls.tweet, formData)
+
+            if(status===201)  {
+
+            }
+            if(body['message']) {
+                messageRef.current.displayToast(body['message'])
+            }
+        }
     }
     return (
         <div className="TweetInput__bg">
             <Toast ref={messageRef} />
             <div className="TweetInput__main">
                 <Avatar className="TweetInput__avatar" />
-                <TextareaAutosize placeholder="What's happening?"  />
+                <TextareaAutosize placeholder="What's happening?" onChange={(e)=>setText(e.target.value)}  />
             </div> 
             {photoFile && 
             <div className="TweetInput__photo">
