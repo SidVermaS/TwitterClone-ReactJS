@@ -1,0 +1,25 @@
+.Tweet__bg   {
+    display: flex;
+
+    border-bottom: 1px solid var(--twitter-bg);
+}
+.Tweet__avatar  {
+    flex: 0.1;
+}
+.Tweet__profile {
+    flex: 0.9;
+    align-items: center; 
+}
+.Tweet__profile_name    {
+
+}
+
+
+
+
+
+
+
+
+
+

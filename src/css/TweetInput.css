@@ -1,7 +1,7 @@
 .TweetInput__bg {
     /* align-items: center; */
     padding: 0 15px 10px 15px;
-    border-bottom: 10px solid var(--twitter-bg);;
+    border-bottom: 10px solid var(--twitter-bg);
 }
 .TweetInput__photo > img   {
     width: 100%;

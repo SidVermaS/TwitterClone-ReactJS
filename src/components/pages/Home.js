@@ -1,31 +1,38 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { connect } from 'react-redux'
 
 import TweetInput from '../widgets/TweetInput'
+import Toast from '../widgets/Toast'
 
 import {ReactComponent as LatestTweets } from '../../assets/images/latest_tweets.svg'
+
+import APICalls from '../../networks/APICalls'
+
 import '../../css/Home.css'
+import Tweets from './Tweets'
+
 function Home(props)   {
+    const messageRef=useRef()
+    
+    const showToast=(message)=>   {
+        messageRef.current.displayToast(message)
+    }
+
     useEffect((props1)=>  {
     },[])
+
     return (
         <div className="Home__bg">
-            {/* d-flex justify-content-between */}
+            <Toast ref={messageRef} />
             <div className="Home__header navbar sticky-top">
                 <span className="Home__title">Home</span>
                 <LatestTweets className="Home__latest_tweets_icon" />
             </div>
             <div className="Home__content">
-                <TweetInput />
-
-
-                
-            <div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div><div>World</div>
+                <TweetInput profile={props.profile} showToast={showToast} />
+                <Tweets profile={props.profile} showToast={showToast} />
             </div>
         </div>
     )
 }
-const mapStateToProps=state=>({
-    profile: state.profile.profile
-})
-export default connect(mapStateToProps, {  })(Home)
+export default Home

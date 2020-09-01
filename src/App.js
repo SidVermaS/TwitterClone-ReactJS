@@ -49,7 +49,7 @@ function SecuredRoute(props)    {
     <Route path={props.path} render={data=>
       ((props.profile===undefined || props.profile===null) && props.path!=='/login')?(<Redirect to={{pathname: '/welcome'}}></Redirect>):
       // (<Redirect to={{pathname: props.path}}></Redirect>)}></Route>
-      (<props.component {...data}></props.component>)}></Route>
+      (<props.component profile={props.profile} {...data}></props.component>)}></Route>
       
   )
 }
@@ -59,7 +59,7 @@ function UnsecuredRoute(props)  {
   )
 }
 function App(props) {
-  const [profile, setProfile]=useState(localStorage.getItem('profile'))
+  const [profile, setProfile]=useState(JSON.parse(localStorage.getItem('profile')))
   useEffect((props1)=>{
     props.fetch()
     console.log('~~~ App: ',profile)

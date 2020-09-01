@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Formik, Form, Field } from 'formik'
 import TextareaAutosize from 'react-textarea-autosize'
 import Avatar from './Avatar'
-import Toast from '../widgets/Toast'
 
 import APICalls from '../../networks/APICalls'
 
@@ -15,9 +14,11 @@ import {ReactComponent as TweetSchedule} from '../../assets/images/tweet_inputs/
 import '../../css/TweetInput.css'
 
 function TweetInput(props)  {
+    useState(()=>   {
+    },[])
     const apiCalls=new APICalls({ profile: props.profile })
 
-    const fileRef=useRef(null), messageRef=useRef()
+    const fileRef=useRef(null)
 
     const [photoFile, setPhotoFile]=useState(null),
     [photoUrl, setPhotoUrl]=useState(null),
@@ -44,7 +45,7 @@ function TweetInput(props)  {
 
         }   else    {  
             if(body['message']) {
-                messageRef.current.displayToast(body['message'])
+                props.showToast(body['message'])
             }
         }
         return body['photo_url']
@@ -64,15 +65,14 @@ function TweetInput(props)  {
 
             }
             if(body['message']) {
-                messageRef.current.displayToast(body['message'])
+                props.showToast(body['message'])
             }
         }
     }
     return (
         <div className="TweetInput__bg">
-            <Toast ref={messageRef} />
             <div className="TweetInput__main">
-                <Avatar className="TweetInput__avatar" />
+                <Avatar className="TweetInput__avatar" photo_url_profile={`${apiCalls.baseUrlProfilePhoto}${props.profile.photo_url_profile}`} />
                 <TextareaAutosize placeholder="What's happening?" onChange={(e)=>setText(e.target.value)}  />
             </div> 
             {photoFile && 
@@ -95,8 +95,4 @@ function TweetInput(props)  {
 
 }
 
-const mapStateToProps=state=>   ({
-    profile: state.profile.profile
-})
-
-export default connect(mapStateToProps, null)(TweetInput)
+export default TweetInput
