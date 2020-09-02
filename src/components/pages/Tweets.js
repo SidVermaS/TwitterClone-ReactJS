@@ -30,7 +30,7 @@ function Tweets(props)  {
         <div>
             {
                 tweets.map((tweet)=>(
-                    <Tweet tweet={tweet} profile={tweet.profile[0]} baseUrlProfilePhoto={apiCalls.baseUrlProfilePhoto} />
+                    <Tweet tweet={tweet} profile={tweet.profile[0]} baseUrlProfilePhoto={apiCalls.baseUrlProfilePhoto} baseUrlTweetPhoto={apiCalls.baseUrlTweetPhoto} />
                 ))     
             }
         </div>
