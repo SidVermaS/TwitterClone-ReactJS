@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-import { setPageIndex, getPageIndex } from '../actions/pageIndexActions'
+import { setPagePath } from '../actions/pagePathActions'
 
 import SidebarItem from './SidebarItem'
 
@@ -18,14 +18,16 @@ function Sidebar(props) {
     useState(()=>{
 
     },[])
-    const onItemChanged=selectedIndex=> {
-        props.setPageIndex(selectedIndex)
+    const onItemChanged=selectedPath=> {
+        props.setPagePath(selectedPath)
+        // props.history.push('/profile')
+        console.log('~~~ Sidebar: ',props.history)
     }
     return (
         <div className="Sidebar__bg sticky-top">
             <TwitterLogoSm className="Sidebar__twitter_logo"  />            
             {
-                items.map((item, index)=><div key={index}><SidebarItem item={item} index={index} selectedIndex={props.page_index} onItemChanged={onItemChanged}  /></div>)
+                items.map((item, index)=><div key={index}><Link to={item.path} style={{ color: 'inherit', textDecoration: 'inherit'}}><SidebarItem item={item} selectedPath={props.page_path} onItemChanged={onItemChanged}  /></Link></div>)
             }
 
             <button className="btn btn-block Sidebar__tweet_btn">Tweet</button>
@@ -34,6 +36,6 @@ function Sidebar(props) {
 }
 
 const mapStateToProps=state=>({
-    page_index: state.page_index.page_index
+    page_path: state.page_path.page_path
 })
-export default connect(mapStateToProps, { setPageIndex, getPageIndex })(Sidebar)
+export default connect(mapStateToProps, { setPagePath })(Sidebar)

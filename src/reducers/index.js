@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import profileReducer from './profileReducer'
-import pageIndexReducer from './pageIndexReducer'
+import pagePathReducer from './pagePathReducer'
 
 export default combineReducers({
     profile: profileReducer,
-    page_index: pageIndexReducer
+    page_path: pagePathReducer
 })

@@ -29,8 +29,8 @@ function Tweets(props)  {
     return (
         <div>
             {
-                tweets.map((tweet)=>(
-                    <Tweet tweet={tweet} profile={tweet.profile[0]} baseUrlProfilePhoto={apiCalls.baseUrlProfilePhoto} baseUrlTweetPhoto={apiCalls.baseUrlTweetPhoto} />
+                tweets.map((tweet, index)=>(
+                    <Tweet key={index} tweet={tweet} profile={tweet.profile[0]} baseUrlProfilePhoto={apiCalls.baseUrlProfilePhoto} baseUrlTweetPhoto={apiCalls.baseUrlTweetPhoto} />
                 ))     
             }
         </div>

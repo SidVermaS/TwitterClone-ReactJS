@@ -1,5 +1,4 @@
 export const FETCH='FETCH'
 export const SAVE='SAVE'
 export const CLEAR='CLEAR'
-export const SET_PAGE_INDEX='SET_PAGE_INDEX'
-export const GET_PAGE_INDEX='GET_PAGE_INDEX'
+export const SET_PAGE_PATH='SET_PAGE_PATH'

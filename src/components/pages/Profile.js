@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
+
+
 function Profile(props) {
+    useEffect(()=>  {
+    })
     return (
         <div>
             <h1>Profile</h1><h1>Profile</h1><h1>Profile</h1><h1>Profile</h1><h1>Profile</h1><h1>Profile</h1><h1>Profile</h1><h1>Profile</h1><h1>Profile</h1><h1>Profile</h1><h1>Profile</h1><h1>Profile</h1><h1>Profile</h1><h1>Profile</h1><h1>Profile</h1><h1>Profile</h1><h1>Profile</h1><h1>Profile</h1><h1>Profile</h1>
