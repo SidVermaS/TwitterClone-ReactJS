@@ -60,6 +60,7 @@ function UnsecuredRoute(props)  {
 }
 function App(props) {
   const [profile, setProfile]=useState(JSON.parse(localStorage.getItem('profile')))
+  
   useEffect((props1)=>{
     props.fetch()
     console.log('~~~ App: ',profile)
