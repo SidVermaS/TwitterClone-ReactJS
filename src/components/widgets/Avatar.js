@@ -5,7 +5,6 @@ import '../../css/Avatar.css'
 
 function Avatar(props)  {
     useState(()=>   {
-        console.log('~~~ avat: ',props)
     })
     return (
         <div>

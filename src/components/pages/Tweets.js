@@ -7,20 +7,22 @@ import APICalls from '../../networks/APICalls'
 
 function Tweets(props)  {
     const apiCalls=new APICalls({ profile: props.profile })
-    let [tweets, setTweets]=useState([]), 
+    let [url, setUrl]=useState(''), [tweets, setTweets]=useState([]),
     [index, setIndex]=useState(-1)
 
-    useEffect((props1)=>  {
-        fetchTweets()
-
-    },[])
+    useEffect((props1)=>  {  
+        setUrl(props.urlType==='home'?`${apiCalls.tweet}`:`${apiCalls.tweet}${apiCalls.profile}`) 
+        if(url) {  
+            fetchTweets()
+        }    
+    },[url])
 
     const fetchTweets=async ()=>    {
         setIndex(index++)
-        const { status, body }=await apiCalls.getRequest(`${apiCalls.tweet}?index=${index}&_id=${props.profile._id}`)
+        const { status, body }=await apiCalls.getRequest(`${url}?index=${index}&_id=${props.profile._id}`)
         if(status===200)    {
             setTweets(body['tweets'])
-        }   else    {
+        }   else if(status)   {
             props.showToast(body['message'])
         }
     }

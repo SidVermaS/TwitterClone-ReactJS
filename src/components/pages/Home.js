@@ -13,13 +13,12 @@ import Tweets from './Tweets'
 
 function Home(props)   {
     const messageRef=useRef()
-    
+   
     const showToast=(message)=>   {
         messageRef.current.displayToast(message)
     }
 
     useEffect((props1)=>  {
-       
     },[])
 
     return (
@@ -31,7 +30,7 @@ function Home(props)   {
             </div>
             <div className="Home__content">
                 <TweetInput profile={props.profile} showToast={showToast} />
-                <Tweets profile={props.profile} showToast={showToast} />
+                <Tweets profile={props.profile} showToast={showToast} urlType="home" />
             </div>
         </div>
     )

@@ -12,7 +12,7 @@ import Sidebar from './components/Sidebar'
 import Options from './components/Options'
 import Home from './components/pages/Home'
 import Profile from './components/pages/Profile'
-
+import Lists from './components/pages/Lists'
 
 import './App.css';
 
@@ -21,7 +21,7 @@ import './App.css';
 
 function SecuredRoute(props)    {
   useEffect((props1)=>  {
-    console.log('~~~ SecuredRoute: ',props.history)
+    console.log('~~~ SecuredRoute: ',props.profile)
     props.setPagePath(props.path)
   }, [])
   return (
@@ -42,16 +42,16 @@ function App(props) {
   
   useEffect((props1)=>{
     props.fetch()
-    console.log('~~~ App: ',props.history)
+    console.log('~~~ App: ',profile)
   },[profile])
   return (
     <div style={{display: "flex"}}>
-      <Sidebar  />
+      <Sidebar profile={profile}  />
       <div className="App__main">
         <Switch>       
           <SecuredRoute exact path="/" component={Home} profile={profile} setPagePath={props.setPagePath}></SecuredRoute>
-          <SecuredRoute path="/profile" component={Profile} profile={profile} setPagePath={props.setPagePath}></SecuredRoute>
-
+          <SecuredRoute path="/profile/:username" component={Profile} profile={profile} setPagePath={props.setPagePath}></SecuredRoute>
+          <SecuredRoute path="/lists" component={Lists} profile={profile} setPagePath={props.setPagePath}></SecuredRoute>
           <UnsecuredRoute path="/welcome" component={Welcome} profile={profile} ></UnsecuredRoute>
           <UnsecuredRoute path="/login" component={Login} profile={profile} ></UnsecuredRoute>
           <UnsecuredRoute path="/register" component={Register} profile={profile}></UnsecuredRoute>

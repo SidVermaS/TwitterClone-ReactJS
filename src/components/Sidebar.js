@@ -16,7 +16,7 @@ import '../css/Sidebar.css'
 function Sidebar(props) {
     
     useState(()=>{
-
+        console.log('~~~ Sidebar profile: ',props.profile)
     },[])
     const onItemChanged=selectedPath=> {
         props.setPagePath(selectedPath)
@@ -27,7 +27,7 @@ function Sidebar(props) {
         <div className="Sidebar__bg sticky-top">
             <TwitterLogoSm className="Sidebar__twitter_logo"  />            
             {
-                items.map((item, index)=><div key={index}><Link to={item.path} style={{ color: 'inherit', textDecoration: 'inherit'}}><SidebarItem item={item} selectedPath={props.page_path} onItemChanged={onItemChanged}  /></Link></div>)
+                items.map((item, index)=><div key={index}><Link to={item.path==='/profile'?`/profile/${props.profile.username}`:item.path} style={{ color: 'inherit', textDecoration: 'inherit'}}><SidebarItem item={item} selectedPath={props.page_path} onItemChanged={onItemChanged}  /></Link></div>)
             }
 
             <button className="btn btn-block Sidebar__tweet_btn">Tweet</button>
@@ -36,6 +36,6 @@ function Sidebar(props) {
 }
 
 const mapStateToProps=state=>({
-    page_path: state.page_path.page_path
+    page_path: state.page_path.page_path,
 })
 export default connect(mapStateToProps, { setPagePath })(Sidebar)
