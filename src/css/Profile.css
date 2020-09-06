@@ -19,7 +19,18 @@
 .Profile__back_icon g {
     fill: var(--twitter-dark);    
 }
+.nav-tabs>li>a{
+    color: grey;
+    font-weight: 700;
+}
 
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+    border: none;
+    border-bottom: 3px solid var(--twitter-dark);
+    font-weight:700;
+    color: grey;
+    background: transparent;
+}
 
 
 

@@ -34,13 +34,19 @@ function ProfileHeader(props)   {
                     <span className="ProfileHeader__joined">&nbsp;Joined&nbsp;{getDate(props.currentProfile.joint)}</span>
                 </div>
                 <div className="d-flex">
-                    <span className="ProfileHeader__count">{props.currentProfile.followers}</span>
-                    <span className="ProfileHeader__joined">&nbsp;Followers</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <span className="ProfileHeader__count">{props.currentProfile.following}</span>
-                    <span className="ProfileHeader__joined">&nbsp;Following</span>
+                    <span className="ProfileHeader__joined">&nbsp;Following</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span className="ProfileHeader__count">{props.currentProfile.followers}</span>
+                    <span className="ProfileHeader__joined">&nbsp;Followers</span>
                 </div>
             </div>
+            
+         
 
+
+
+
+            
 
 
         </div>

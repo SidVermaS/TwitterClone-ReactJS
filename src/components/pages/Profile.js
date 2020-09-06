@@ -12,7 +12,7 @@ import '../../css/Profile.css'
 function Profile(props) {
     const messageRef=useRef()
     const apiCalls=new APICalls({ profile: props.profile })
-    const [currentProfile, setCurrentProfile]=useState(null)
+    const [currentProfile, setCurrentProfile]=useState(null), [tabIndex,setTabIndex]=useState(0)
     const showToast=(message)=>   {
         // messageRef.current.displayToast(message)
     }
@@ -24,6 +24,9 @@ function Profile(props) {
         } else if(status)   {
             showToast(body['message'])
         }
+    }
+    const changeTab=(receivedTabIndex)=>{
+        setTabIndex(receivedTabIndex)
     }
     useEffect((props1)=>  {
         
@@ -39,7 +42,28 @@ function Profile(props) {
                     <span>{currentProfile.name}</span>
                 </div>    
                 <ProfileHeader profile={props.profile} currentProfile={currentProfile} baseUrlProfilePhoto={apiCalls.baseUrlProfilePhoto} baseUrlTweetPhoto={apiCalls.baseUrlTweetPhoto} className="Profile__ProfileHeader"  />
-                
+         
+
+<div className="">
+  <ul className="nav nav-tabs d-flex justify-content-around">
+        <li><a href="#pane1" data-toggle="tab" onClick={changeTab}>Tweets</a></li>
+        <li className="active"><a href="#pane2" data-toggle="tab" onClick={changeTab}>Tweets &amp; replies</a></li>
+        <li><a href="#pane3" data-toggle="tab" onClick={changeTab}>Media</a></li>
+        <li><a href="#pane4" data-toggle="tab" onClick={changeTab}>Likes</a></li>
+    </ul>
+ 
+</div>
+
+
+
+
+
+
+
+        
+            
+
+
             </React.Fragment>}
         </div>
     )
