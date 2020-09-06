@@ -20,13 +20,13 @@ function Profile(props) {
         
         const { status, body }=await apiCalls.getRequest(`${apiCalls.profile}?username=${props.match.params.username}&_id=${props.profile._id}`)
         if(status===200)    {
-            setCurrentProfile(body['profile'])
+            setCurrentProfile(body['profile'][0])
         } else if(status)   {
             showToast(body['message'])
         }
     }
     useEffect((props1)=>  {
-        console.log(`fetchProfile: ${JSON.stringify(props)}`)
+        
         fetchProfile()
     },[])
     
@@ -38,7 +38,7 @@ function Profile(props) {
                     <ArrowLeft className="Profile__back_icon"  />
                     <span>{currentProfile.name}</span>
                 </div>    
-                <ProfileHeader currentProfile={currentProfile} baseUrlProfilePhoto={apiCalls.baseUrlProfilePhoto} baseUrlTweetPhoto={apiCalls.baseUrlTweetPhoto} className="Profile__ProfileHeader"  />
+                <ProfileHeader profile={props.profile} currentProfile={currentProfile} baseUrlProfilePhoto={apiCalls.baseUrlProfilePhoto} baseUrlTweetPhoto={apiCalls.baseUrlTweetPhoto} className="Profile__ProfileHeader"  />
                 
             </React.Fragment>}
         </div>
