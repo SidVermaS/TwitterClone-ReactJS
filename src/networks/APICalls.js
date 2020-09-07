@@ -17,6 +17,7 @@ class APICalls  {
     register='register/'
     tweet='tweet/'
     profile='profile/'
+    favorite='favorite/'
     list='list/'
     upload='upload/'
 

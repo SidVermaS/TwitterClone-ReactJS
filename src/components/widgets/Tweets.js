@@ -21,21 +21,34 @@ function Tweets(props)  {
         setIndex(index++)
         const { status, body }=await apiCalls.getRequest(`${url}?index=${index}&_id=${props.profile._id}`)
         if(status===200)    {
-            setTweets(body['tweets'])
+            setTweets([...body['tweets']])
         }   else if(status)   {
             props.showToast(body['message'])
         }
     }
     const changeLike=async (likedTweetIndex)=>{
         tweets[likedTweetIndex].is_liked=!tweets[likedTweetIndex].is_liked
+        if(tweets[likedTweetIndex].is_liked)    {
+            tweets[likedTweetIndex].likes++
+        }   else    {
+            tweets[likedTweetIndex].likes--
+        }
         console.log('~~~ chlike',tweets[likedTweetIndex].is_liked)
-        setTweets(tweets)
-        // const { status, body }=await apiCalls.getRequest(`${url}?index=${index}&_id=${props.profile._id}`)
-        // if(status===200)    {
+        setTweets([...tweets])
+
+        const formData={
+            is_liked: tweets[likedTweetIndex].is_liked,
+            tweet_id: tweets[likedTweetIndex]._id,
+            profile_id: props.profile._id
+        }
+
+        const { status, body }=await apiCalls.patchRequest(`${apiCalls.tweet}${apiCalls.favorite}`, formData)
+        if(status===200)    {
           
-        // }   else if(status)   {
-        //     props.showToast(body['message'])
-        // }
+
+        }   else if(status)   {
+            props.showToast(body['message'])
+        }
 
     }
 

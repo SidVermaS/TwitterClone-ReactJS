@@ -45,6 +45,9 @@ mark   {
 .Tweet__icon  g  {
     fill: grey;
 }
+.Tweet__icon_favorite_active g  {
+    fill: red;
+}
 .Tweet__actions {
     align-items: center;
     margin: 10px 90px 0 0;

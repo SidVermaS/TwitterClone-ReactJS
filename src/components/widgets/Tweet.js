@@ -6,7 +6,8 @@ import {ChevronCompactDown} from 'react-bootstrap-icons'
 import Avatar from './Avatar'
 
 import {ReactComponent as Comment} from '../../assets/images/tweets/comment.svg'
-import {ReactComponent as Like} from '../../assets/images/tweets/like.svg'
+import {ReactComponent as Favorite} from '../../assets/images/tweets/favorite.svg'
+import {ReactComponent as FavoriteActive} from '../../assets/images/tweets/favorite_active.svg'
 import {ReactComponent as Retweet} from '../../assets/images/tweets/retweet.svg'
 import {ReactComponent as Share} from '../../assets/images/tweets/share.svg'
 
@@ -44,7 +45,7 @@ function Tweet(props)    {
                 <div className="Tweet__actions d-flex justify-content-between">
                     <div><Comment className="Tweet__icon"  />{props.tweet.comments?props.tweet.comments!=0?props.tweet.comments:null:null}</div>
                     <div><Retweet className="Tweet__icon"    />{props.tweet.retweets?props.tweet.retweets!=0?props.tweet.retweets:null:null}</div>
-                    <div><Like className="Tweet__icon" onClick={e=>props.changeLike(props.index)}   />{props.tweet.likes?props.tweet.likes!=0?props.tweet.likes:null:null}</div>
+                <div>{props.tweet.is_liked?<FavoriteActive className="Tweet__icon Tweet__icon_favorite_active" onClick={e=>props.changeLike(props.index)}   />:<Favorite className="Tweet__icon" onClick={e=>props.changeLike(props.index)}   />}{props.tweet.likes?props.tweet.likes!=0?props.tweet.likes:null:null}</div>
                     <div><Share className="Tweet__icon"  />{props.tweet.shares?props.tweet.shares!=0?props.tweet.shares:null:null}</div>
                 </div>
             </div>
