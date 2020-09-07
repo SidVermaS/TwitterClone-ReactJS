@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { connect } from 'react-redux'
 
 import TweetInput from '../widgets/TweetInput'
+import Tweets from '../widgets/Tweets'
 import Toast from '../widgets/Toast'
 
 import {ReactComponent as LatestTweets } from '../../assets/images/latest_tweets.svg'
@@ -9,7 +10,7 @@ import {ReactComponent as LatestTweets } from '../../assets/images/latest_tweets
 import APICalls from '../../networks/APICalls'
 
 import '../../css/Home.css'
-import Tweets from './Tweets'
+
 
 function Home(props)   {
     const messageRef=useRef()
@@ -17,7 +18,7 @@ function Home(props)   {
     const showToast=(message)=>   {
         messageRef.current.displayToast(message)
     }
-
+    
     useEffect((props1)=>  {
     },[])
 

@@ -2,6 +2,7 @@
     flex: 0.51;
     border-left: 1px solid var(--twitter-border);
     border-right: 1px solid var(--twitter-border);
+
     height: 100%;
 }
 .Profile__header    {
@@ -19,32 +20,30 @@
 .Profile__back_icon g {
     fill: var(--twitter-dark);    
 }
-.nav-tabs>li>a{
-    color: grey;
+.Profile__nav>div>div:focus, .Profile__nav>div>div:hover   {
+    background: var(--twitter-login-light);
+    text-decoration: none;
+}
+.Profile__nav>div>div:focus>a, .Profile__nav>div>div:hover>a   {
+    color: var(--twitter-login-dark); 
+    text-decoration: none;
+}
+.Profile__nav_active    {
+    border-bottom: 2px solid var(--twitter-login-dark);
+    color: var(--twitter-login-dark);
+}
+a   {
     font-weight: 700;
+    text-decoration: none;
+    color: grey
 }
 
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
-    border: none;
-    border-bottom: 3px solid var(--twitter-dark);
-    font-weight:700;
-    color: grey;
-    background: transparent;
+.Profile__nav_a {
+    color: var(--twitter-login-dark);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+hr  {
+    margin-top: -1px;
+}
 
 
 

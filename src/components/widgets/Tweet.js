@@ -44,7 +44,7 @@ function Tweet(props)    {
                 <div className="Tweet__actions d-flex justify-content-between">
                     <div><Comment className="Tweet__icon"  />{props.tweet.comments?props.tweet.comments!=0?props.tweet.comments:null:null}</div>
                     <div><Retweet className="Tweet__icon"    />{props.tweet.retweets?props.tweet.retweets!=0?props.tweet.retweets:null:null}</div>
-                    <div><Like className="Tweet__icon"   />{props.tweet.likes?props.tweet.likes!=0?props.tweet.likes:null:null}</div>
+                    <div><Like className="Tweet__icon" onClick={e=>props.changeLike(props.index)}   />{props.tweet.likes?props.tweet.likes!=0?props.tweet.likes:null:null}</div>
                     <div><Share className="Tweet__icon"  />{props.tweet.shares?props.tweet.shares!=0?props.tweet.shares:null:null}</div>
                 </div>
             </div>

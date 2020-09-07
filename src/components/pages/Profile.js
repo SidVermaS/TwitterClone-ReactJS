@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { connect } from 'react-redux'
+import { HashLink as Link } from 'react-router-hash-link'
 
 import ProfileHeader from '../widgets/ProfileHeader'
+import Tweets from '../widgets/Tweets'
+
 import Toast from '../widgets/Toast'
 import APICalls from '../../networks/APICalls'
 
@@ -31,7 +34,7 @@ function Profile(props) {
     useEffect((props1)=>  {
         
         fetchProfile()
-    },[])
+    },[tabIndex])
     
     return (
         <div className="Profile__bg">
@@ -42,19 +45,18 @@ function Profile(props) {
                     <span>{currentProfile.name}</span>
                 </div>    
                 <ProfileHeader profile={props.profile} currentProfile={currentProfile} baseUrlProfilePhoto={apiCalls.baseUrlProfilePhoto} baseUrlTweetPhoto={apiCalls.baseUrlTweetPhoto} className="Profile__ProfileHeader"  />
-         
-
-<div className="">
-  <ul className="nav nav-tabs d-flex justify-content-around">
-        <li><a href="#pane1" data-toggle="tab" onClick={changeTab}>Tweets</a></li>
-        <li className="active"><a href="#pane2" data-toggle="tab" onClick={changeTab}>Tweets &amp; replies</a></li>
-        <li><a href="#pane3" data-toggle="tab" onClick={changeTab}>Media</a></li>
-        <li><a href="#pane4" data-toggle="tab" onClick={changeTab}>Likes</a></li>
-    </ul>
- 
-</div>
-
-
+    
+            <div className="Profile__nav container">
+                <div className="row text-center">
+                    {console.log('~~~ tabIndex: ',tabIndex)}
+                    <div onClick={e=>changeTab(0)} className={"col py-2 "+(tabIndex===0?'Profile__nav_active':'')}><Link to="#tweets" className={tabIndex===0?'Profile__nav_a':''}>Tweets</Link></div>
+                    <div onClick={e=>changeTab(1)} className={"col py-2 "+(tabIndex===1?'Profile__nav_active':'')}><Link to="#with_replies" className={tabIndex===1?'Profile__nav_a':''}>Tweets &amp; replies</Link></div>
+                    <div onClick={e=>changeTab(2)} className={"col py-2 "+(tabIndex===2?'Profile__nav_active':'')}><Link to="#media" className={tabIndex===2?'Profile__nav_a':''}>Media</Link></div>
+                    <div onClick={e=>changeTab(3)} className={"col py-2 "+(tabIndex===3?'Profile__nav_active':'')}><Link to="#likes" className={tabIndex===3?'Profile__nav_a':''}>Likes</Link></div>
+                </div>                   
+            </div>
+            <hr/>
+            <Tweets profile={props.profile} showToast={showToast} urlType="tweets" />
 
 
 
