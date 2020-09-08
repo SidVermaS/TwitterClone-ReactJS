@@ -27,7 +27,7 @@ function Home(props)   {
             <Toast ref={messageRef} />
             <div className="Home__header navbar sticky-top">
                 <span className="Home__title">Home</span>
-                <LatestTweets className="Home__latest_tweets_icon" />
+                <LatestTweets className="App__icon" />
             </div>
             <div className="Home__content">
                 <TweetInput profile={props.profile} showToast={showToast} />

@@ -41,14 +41,14 @@ function Login(props)    {
                             <div className="Login__msg1">Log in to Twitter</div>
                             <Form className="text-left">
                                     <div className="form-group Login__bg Login__username_or_email_group">
-                                        <label className="Login__username_or_email_label Login__label_text" htmlFor="Login__username_or_email">
+                                        <label className="Login__label_text" htmlFor="Login__username_or_email">
                                             Phone, email, or username
                                         </label>
                                         <Field className="form-control Login__form-control Login__bg" name="username_or_email" type="text"  />
                                         {/* <ErrorMessage name="username_or_email"  /> */}
                                     </div>
                                     <div className="form-group Login__bg Login__password_group">
-                                        <label className="Login__password_label Login__label_text" htmlFor="password">
+                                        <label className="Login__label_text" htmlFor="password">
                                             Password
                                         </label>
                                         <Field className="form-control Login__form-control Login__bg" name="password" type="password"  />

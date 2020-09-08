@@ -11,8 +11,7 @@
     font-weight: 450;
     margin: 0 10px 0 10px;
 }
-.Login__username_or_email_group, .Login__password_group {
-    
+.Login__username_or_email_group, .Login__password_group {    
     color: var(--twitter-input-text);
 }
 .Login__password_group  {
@@ -45,11 +44,6 @@
     border: none !important;
     border-radius: 30px !important;
     margin: 10px 0px 25px 0px !important;
-}
-.Login__form-label-group   {
-
-
-
 }
 
 

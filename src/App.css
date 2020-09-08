@@ -17,3 +17,18 @@ body  {
 .App__main  {
   flex: 0.51;
 }
+.App__back_icon  {
+  width: 24px;
+  height: 24px;
+  margin-right: 30px;
+}
+.App__back_icon g {
+  fill: var(--twitter-dark);    
+}
+.App__icon  {
+  width: 23px;
+  height: 23px;
+}
+.App__icon g {
+  fill: var(--twitter-dark);    
+}

@@ -14,13 +14,7 @@
 .Home__content   {   
     /* padding-top: 56px; */
  }
-.Home__latest_tweets_icon  {
-    width: 22px;
-    height: 22px;
-}
-.Home__latest_tweets_icon g {
-    fill: var(--twitter-dark);    
-}
+
 
 
 

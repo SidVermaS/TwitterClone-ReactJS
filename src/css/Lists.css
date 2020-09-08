@@ -1,0 +1,98 @@
+.Lists__bg  {
+    flex: 0.51;
+    border-left: 1px solid var(--twitter-border);
+    border-right: 1px solid var(--twitter-border);
+    height: 100%;
+}
+
+.Lists__header  {
+    border-bottom: 1px solid var(--twitter-border);
+    font-weight: 900;
+    font-size: 18px;
+    padding: 8px 18px 8px 18px;
+    background: white;
+}
+.Lists__username    {
+    font-weight: 400;
+    font-size: 14.25px;
+    color: grey;  
+    margin-top: -4.5px;
+}
+.Lists__more_icon    {
+    margin-left: 17px;
+}
+.Lists__btn {
+    height: 30px !important;
+    width: 65px !important;
+    border: 1px solid var(--twitter-dark) !important;
+    border-radius: 25px !important;
+    background: var(--twitter-dark) !important;
+    color: white !important;
+    font-weight: 700 !important;
+}
+.List__modal    {
+    /* margin: 0 45px 0 45px; */
+    /* width: 300px; */
+}
+.List__modal_header  {
+    padding: 15px 15px 15px 15px;
+    border-bottom: 1px solid var(--twitter-border);
+}
+.List__modal_title   {
+    font-size: 20px;
+    font-weight: 800;
+    margin-left: 20px;
+}
+.List__modal_photo   {
+    height: 200px;
+    background: #a19e9e;
+    margin: 2px 2px 0 2px;
+}
+.List__modal_body   {
+    margin: 5px 10px 5px 10px;
+    padding: 10px 0 50px 0;
+}
+.List__form_input_bg, .List__form_input_bg:focus   {
+    background: var(--twitter-input);
+}
+.List__form_group   {    
+    color: var(--twitter-input-text);
+}
+.List__form_group:focus-within, .List__form_group:focus-within  {
+    color: var(--twitter-dark);
+}
+.List__label_text   {
+    font-weight: 450;
+    margin: 0 10px 0 10px;
+}
+.List__input    {
+    height: 30px;
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    border-bottom: 2px solid  var(--twitter-input-border);
+    color: black;
+    font-size: 18px;
+}
+.List__input:focus {
+    box-shadow: none;
+    border-bottom: 2px solid var(--twitter-light);
+}
+.text-left  {
+    margin: 0 5px 0 5px;
+}
+.text-right {
+    margin: -12px 8px 18px 0;
+    font-size: 15px; 
+}
+.List__note {
+    margin-top: 7px;
+    font-size: 13px;
+}
+input[type=checkbox], input[type=checkbox]:checked  {
+    width: 18px;
+    height: 18px;
+}
+input[type=checkbox]:hover  {
+    cursor: pointer;
+}

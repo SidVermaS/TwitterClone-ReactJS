@@ -11,7 +11,7 @@ function Tweets(props)  {
     [index, setIndex]=useState(-1)
 
     useEffect((props1)=>  {  
-        setUrl(props.urlType==='home'?`${apiCalls.tweet}`:props.urlType==='tweets'?`${apiCalls.tweet}${apiCalls.profile}`:'') 
+        setUrl(props.urlType==='home'?`${apiCalls.tweet}?`:props.urlType==='tweets'?`${apiCalls.tweet}${apiCalls.profile}?`:'') 
         if(url) {  
             fetchTweets()
         }    
@@ -19,7 +19,7 @@ function Tweets(props)  {
 
     const fetchTweets=async ()=>    {
         setIndex(index++)
-        const { status, body }=await apiCalls.getRequest(`${url}?index=${index}&_id=${props.profile._id}`)
+        const { status, body }=await apiCalls.getRequest(`${url}index=${index}&_id=${props.profile._id}`)
         if(status===200)    {
             setTweets([...body['tweets']])
         }   else if(status)   {

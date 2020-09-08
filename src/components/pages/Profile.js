@@ -41,7 +41,7 @@ function Profile(props) {
             {currentProfile && <React.Fragment>
                 <Toast ref={messageRef}  />
                 <div className="Profile__header sticky-top">
-                    <ArrowLeft className="Profile__back_icon"  />
+                    <ArrowLeft className="App__back_icon"  />
                     <span>{currentProfile.name}</span>
                 </div>    
                 <ProfileHeader profile={props.profile} currentProfile={currentProfile} baseUrlProfilePhoto={apiCalls.baseUrlProfilePhoto} baseUrlTweetPhoto={apiCalls.baseUrlTweetPhoto} className="Profile__ProfileHeader"  />

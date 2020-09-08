@@ -23,7 +23,7 @@ function ProfileHeader(props)   {
                 <img src={`${props.baseUrlTweetPhoto}img7.jpg`} className="ProfileHeader__cover_photo" />
                 <div className="ProfileHeader__header d-flex justify-content-between"> 
                     <img src={`${props.baseUrlProfilePhoto}${props.currentProfile.photo_url_profile}`} className="rounded-circle ProfileHeader__profile_photo" />
-                    {props.currentProfile._id===props.profile._id?<button type="button" className="ProfileHeader__btn btn btn-outline-primary">Edit profile</button>:<button>Follow</button>}
+                    {props.currentProfile._id===props.profile._id?<button type="button" className="ProfileHeader__btn ProfileHeader__follow_btn btn btn-outline-primary">Edit profile</button>:props.currentProfile.is_followed===true?<button type="button" className="ProfileHeader__btn ProfileHeader__following_btn btn ">Following</button>:<button type="button" className="ProfileHeader__btn ProfileHeader__follow_btn btn btn-outline-primary">Follow</button>}
                 </div>
             <div className="ProfileHeader__content">    
                 <div className="ProfileHeader__name">{props.currentProfile.name}</div>

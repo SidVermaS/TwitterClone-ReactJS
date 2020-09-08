@@ -9,7 +9,7 @@
     margin:  0 18px 0 18px;
 }
 .ProfileHeader__cover_photo {
-    width: 625px;
+    width: 617px;
     height: 225px;
     position: absolute;
     z-index: 1;
@@ -27,10 +27,19 @@
     height: 37px;
     border: 1px solid var(--twitter-dark) !important;
     border-radius: 30px !important;
-    color: var(--twitter-dark) !important;
+   
     font-weight: 700;
     margin: 235px 0px 0 0 !important;
-
+}
+.ProfileHeader__following_btn    {
+    background: var(--twitter-dark) !important;
+    color: white !important;    
+}
+.ProfileHeader__following_btn:hover {
+    color: white !important;   
+}
+.ProfileHeader__follow_btn    {
+    color: var(--twitter-dark) !important;
 }
 .ProfileHeader__btn:hover {
     border: 1px solid var(--twitter-dark) !important;
