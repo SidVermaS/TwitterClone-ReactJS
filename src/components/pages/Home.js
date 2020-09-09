@@ -14,11 +14,14 @@ import '../../css/Home.css'
 
 function Home(props)   {
     const messageRef=useRef()
+    const tweetsRef=useRef()
    
     const showToast=(message)=>   {
         messageRef.current.displayToast(message)
     }
-    
+    const addNewTweet=(tweet)=> {
+        tweetsRef.current.addNewTweet(tweet)
+    }
     useEffect((props1)=>  {
     },[])
 
@@ -30,8 +33,8 @@ function Home(props)   {
                 <LatestTweets className="App__icon" />
             </div>
             <div className="Home__content">
-                <TweetInput profile={props.profile} showToast={showToast} />
-                <Tweets profile={props.profile} showToast={showToast} urlType="home" />
+                <TweetInput profile={props.profile} showToast={showToast} addNewTweet={addNewTweet}  />
+                <Tweets ref={tweetsRef} profile={props.profile} showToast={showToast} urlType="home" />
             </div>
         </div>
     )

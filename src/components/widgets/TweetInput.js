@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, } from 'react'
 import { connect } from 'react-redux'
 import { Formik, Form, Field } from 'formik'
 import TextareaAutosize from 'react-textarea-autosize'
@@ -14,6 +14,7 @@ import {ReactComponent as TweetSchedule} from '../../assets/images/tweet_inputs/
 import '../../css/TweetInput.css'
 
 function TweetInput(props)  {
+
     useState(()=>   {
     },[])
     const apiCalls=new APICalls({ profile: props.profile })
@@ -61,7 +62,8 @@ function TweetInput(props)  {
             const { status, body }=await apiCalls.postRequest(apiCalls.tweet, formData)
 
             if(status===201)  {
-
+                body['tweet'].profile=[{ _id: props.profile._id, name: props.profile.name, photo_url_profile: props.profile.photo_url_profile }]
+                props.addNewTweet(body['tweet'])
             }
             if(body['message']) {
                 props.showToast(body['message'])

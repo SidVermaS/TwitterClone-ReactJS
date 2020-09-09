@@ -1,21 +1,31 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, forwardRef, useImperativeHandle } from 'react'
 import { connect } from 'react-redux'
 
 import Tweet from './Tweet'
 
 import APICalls from '../../networks/APICalls'
 
-function Tweets(props)  {
+const Tweets=forwardRef((props,ref)=>  {
     const apiCalls=new APICalls({ profile: props.profile })
     let [url, setUrl]=useState(''), [tweets, setTweets]=useState([]),
     [index, setIndex]=useState(-1)
+
+    useImperativeHandle(ref, ()=>   ({
+        addNewTweet(tweet)  {
+            console.log('~~~~ addNewTweet: ',tweet)
+            tweets.unshift(tweet)
+            setTweets([...tweets])
+            setIndex(index++)
+        }
+    }))  
+  
 
     useEffect((props1)=>  {  
         setUrl(props.urlType==='home'?`${apiCalls.tweet}?`:props.urlType==='tweets'?`${apiCalls.tweet}${apiCalls.profile}?`:'') 
         if(url) {  
             fetchTweets()
         }    
-    },[url])
+    },[url,])
 
     const fetchTweets=async ()=>    {
         setIndex(index++)
@@ -56,11 +66,11 @@ function Tweets(props)  {
         <div>
             {
                 tweets.map((tweet, index)=>(
-                    <Tweet key={tweet._id} index={index} tweet={tweet} profile={tweet.profile[0]} baseUrlProfilePhoto={apiCalls.baseUrlProfilePhoto} baseUrlTweetPhoto={apiCalls.baseUrlTweetPhoto} changeLike={changeLike} />
+                    <Tweet key={tweet._id} index={index===undefined?tweets.length-1:index} tweet={tweet} profile={tweet.profile[0]} baseUrlProfilePhoto={apiCalls.baseUrlProfilePhoto} baseUrlTweetPhoto={apiCalls.baseUrlTweetPhoto} changeLike={changeLike} />
                 ))     
             }
         </div>
     )
-}
+})
 
 export default Tweets
