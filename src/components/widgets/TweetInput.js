@@ -29,10 +29,9 @@ function TweetInput(props)  {
     }
     const fileSelectedHandler=e=>{
         setPhotoFile(e.target.files[0])
-        console.log('photoFile: ',e.target.files[0], photoFile)
+        console.log('photoFile: ',e.target.files[0], photoFile, ' url: ',URL.createObjectURL(e.target.files[0]))
         if(e.target.files[0])   {
             setPhotoUrl(URL.createObjectURL(e.target.files[0]))
-            console.log('url: ',photoUrl, ' photoFile: ',photoFile)
         }   else    {
             setPhotoUrl(null)
         }

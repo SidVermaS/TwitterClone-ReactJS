@@ -21,6 +21,13 @@
 .Lists__more_icon    {
     margin-left: 17px;
 }
+.List__add_photo_icon  {
+    width: 23px;
+    height: 23px;
+  }
+.List__add_photo_icon g {
+    fill: var(--twitter-border);    
+  }
 .Lists__btn {
     height: 30px !important;
     width: 65px !important;
@@ -45,8 +52,11 @@
 }
 .List__modal_photo   {
     height: 200px;
-    background: #a19e9e;
+   
     margin: 2px 2px 0 2px;
+}
+.List__modal_photo_div {
+    background: #a19e9e;
 }
 .List__modal_body   {
     margin: 5px 10px 5px 10px;
