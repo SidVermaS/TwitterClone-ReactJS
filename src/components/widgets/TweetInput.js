@@ -64,6 +64,7 @@ function TweetInput(props)  {
             if(status===201)  {
                 body['tweet'].profile=[{ _id: props.profile._id, name: props.profile.name, photo_url_profile: props.profile.photo_url_profile }]
                 props.addNewTweet(body['tweet'])
+                setText('')
             }
             if(body['message']) {
                 props.showToast(body['message'])

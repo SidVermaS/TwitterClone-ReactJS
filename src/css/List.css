@@ -1,16 +1,35 @@
+.List__bg   {
+    padding: 10px 23px 10px 15px;
+    border-bottom: 1px solid var(--twitter-border);;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+.List__thumbnail    {
+    width: 50px;
+    height: 52px;
+    border-radius: 15px;
+    margin-right: 15px;
+}
+.List__name {
+    font-weight: 800;
+    font-size: 20px;
+}
+.List__text {
+    font-weight: 700;
+}
+.List__profile_photo_url_profile    {
+    width: 15.5px;
+    height: 15.5px;
+    border-radius: 30px;
+}
+.List__profile_name    {
+   font-size: 13.5px;
+   margin-top: 3px;
+}
+.List__profile_username    {
+    font-size: 13.5px;
+    color: grey;
+    margin-top: 3px;
+}
 
 
 

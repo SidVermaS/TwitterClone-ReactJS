@@ -31,7 +31,8 @@ const Tweets=forwardRef((props,ref)=>  {
         setIndex(index++)
         const { status, body }=await apiCalls.getRequest(`${url}index=${index}&_id=${props.profile._id}`)
         if(status===200)    {
-            setTweets([...body['tweets']])
+            tweets.push(...body['tweets'])
+            setTweets([...tweets])
         }   else if(status)   {
             props.showToast(body['message'])
         }
@@ -66,7 +67,7 @@ const Tweets=forwardRef((props,ref)=>  {
         <div>
             {
                 tweets.map((tweet, index)=>(
-                    <Tweet key={tweet._id} index={index===undefined?tweets.length-1:index} tweet={tweet} profile={tweet.profile[0]} baseUrlProfilePhoto={apiCalls.baseUrlProfilePhoto} baseUrlTweetPhoto={apiCalls.baseUrlTweetPhoto} changeLike={changeLike} />
+                    <Tweet key={tweet._id} index={index} tweet={tweet} profile={tweet.profile[0]} baseUrlProfilePhoto={apiCalls.baseUrlProfilePhoto} baseUrlTweetPhoto={apiCalls.baseUrlTweetPhoto} changeLike={changeLike} />
                 ))     
             }
         </div>

@@ -4,6 +4,7 @@ import { Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
 import { Button, Modal } from 'react-bootstrap'
 
+import List from '../widgets/List'
 import Toast from '../widgets/Toast'
 
 import { ReactComponent as ArrowLeft } from '../../assets/images/arrow_left.svg'
@@ -26,6 +27,8 @@ function Lists(props)   {
 
     const [photoFile, setPhotoFile]=useState(null),
         [photoUrl, setPhotoUrl]=useState(null)
+
+    let [lists, setLists]=useState([]), [index, setIndex]=useState(-1)
 
     const [show, setShow] = useState(false)
 
@@ -68,7 +71,7 @@ function Lists(props)   {
         const formData={
             name: values.name,
             description: values.description,
-            profile_id: values.profile_id, 
+            profile_id: props.profile._id, 
         }
         if(photoFile)   {
             formData.photo_url_list=await uploadPhoto()
@@ -81,7 +84,10 @@ function Lists(props)   {
 
         
             if(status===201)    {
-                console.log(`~~~ au: ${body}`)
+                body['list']['profile']=[{_id: props.profile._id, name: props.profile.name, username: props.profile.username, photo_url_profile: props.profile.photo_url_profile}]
+                lists.unshift(body['list'])
+                setLists([...lists])
+
                 handleClose()
             }
             if(body['message']) {
@@ -90,8 +96,22 @@ function Lists(props)   {
         }
     }
 
-    useEffect((props1)=>    {
+    const fetchList=async ()=>    {
+        setIndex(index++)
 
+        const { status, body }=await apiCalls.getRequest(`${apiCalls.list}?_id=${props.profile._id}&index=${index}`)
+        if(status===200)    {
+            lists.push(...body['lists'])
+            setLists([...lists])
+            console.log('~~~ setLists: ',lists)
+        }   else if(body['message']) {
+            messageRef.current.displayToast(body['message'])
+        }
+
+    }
+
+    useEffect((props1)=>    {
+        fetchList()
     },[])
 
     const NewList=()=>(
@@ -170,6 +190,14 @@ function Lists(props)   {
                     <span onClick={handleShow}><AddList className="App__icon"  /></span>
                     <More className="App__icon Lists__more_icon" />
                 </div>
+            </div>
+            <div className="Lists__header">Your Lists</div>
+            <div className="">
+                {
+                    lists.map((list, index)=>(
+                        <List key={list._id} index={index} list={list} profile={list.profile[0]} baseUrlProfilePhoto={apiCalls.baseUrlProfilePhoto} baseUrlListPhoto={apiCalls.baseUrlListPhoto} />
+                    ))
+                }
             </div>
         </div>
     )
