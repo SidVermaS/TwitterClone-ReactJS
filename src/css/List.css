@@ -1,8 +1,17 @@
 .List__bg   {
     padding: 10px 23px 10px 15px;
-    border-bottom: 1px solid var(--twitter-border);;
+    border-bottom: 1px solid var(--twitter-border);
 }
-
+.Lists__edit    {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--twitter-dark);
+    margin-right: 10px;
+}
+.Lists__pinned_lists_header    {
+    height: 150px;
+    border-bottom: 15px solid var(--twitter-border);
+}
 .List__thumbnail    {
     width: 50px;
     height: 52px;

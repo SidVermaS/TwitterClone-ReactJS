@@ -28,6 +28,9 @@
 .List__add_photo_icon g {
     fill: var(--twitter-border);    
   }
+.Lists__pinned_lists_header {
+    height: 125px;
+}  
 .Lists__btn {
     height: 30px !important;
     width: 65px !important;

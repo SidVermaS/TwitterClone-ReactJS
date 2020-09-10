@@ -5,6 +5,7 @@ import * as yup from 'yup'
 import { Button, Modal } from 'react-bootstrap'
 
 import List from '../widgets/List'
+import PinnedLists from '../widgets/PinnedLists'
 import Toast from '../widgets/Toast'
 
 import { ReactComponent as ArrowLeft } from '../../assets/images/arrow_left.svg'
@@ -39,6 +40,9 @@ function Lists(props)   {
     }     
     const handleShow = () => setShow(true);
 
+    const showToast=(message)=>   {
+        messageRef.current.displayToast(message)
+    }
     const selectImage=()=>  {
         fileRef.current.click()
     }
@@ -191,6 +195,16 @@ function Lists(props)   {
                     <More className="App__icon Lists__more_icon" />
                 </div>
             </div>
+            <div className="d-flex justify-content-between align-items-center Lists__header">
+                <div>
+                    Pinned
+                </div>
+                <div className="Lists__edit">
+                    Edit
+                </div>
+            </div>
+            <PinnedLists profile={props.profile} baseUrlListPhoto={apiCalls.baseUrlListPhoto} showToast={showToast} className="Lists__pinned_lists_header"    />  
+           
             <div className="Lists__header">Your Lists</div>
             <div className="">
                 {

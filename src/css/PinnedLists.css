@@ -1,0 +1,31 @@
+.PinnedLists__bg  {
+    height: 125px;
+    border-bottom: 15px solid var(--twitter-border);
+    padding: 15px 5px 10px 5px;
+}
+.PinnedLists__child {
+    margin: 0 15px 0 15px;
+}
+.PinnedLists__thumbnail    {
+    width: 70px;
+    height: 72px;
+    border-radius: 15px;
+}
+.PinnedLists__no_pinned_list   {
+    font-size: 15px;
+    color: grey;
+    margin: 0 20px 0 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

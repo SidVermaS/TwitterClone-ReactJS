@@ -19,6 +19,7 @@ class APICalls  {
     profile='profile/'
     favorite='favorite/'
     list='list/'
+    pinned='pinned/'
     upload='upload/'
 
    
