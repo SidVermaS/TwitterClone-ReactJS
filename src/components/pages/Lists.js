@@ -24,7 +24,7 @@ function Lists(props)   {
     const apiCalls=new APICalls({ profile: props.profile })
 
     const fileRef=useRef(null)
-    const messageRef=useRef()
+    const messageRef=useRef(), pinnedListsRef=useRef()
 
     const [photoFile, setPhotoFile]=useState(null),
         [photoUrl, setPhotoUrl]=useState(null)
@@ -47,9 +47,20 @@ function Lists(props)   {
         fileRef.current.click()
     }
     const updatePinnedList=async (index)=>   {
-        
-
-
+        const formData={           
+            _id: lists[index]._id,
+            pinned: !lists[index].pinned,
+            profile_id: lists[index].profile[0]._id,
+        }
+        const { status, body }=await apiCalls.patchRequest(`${apiCalls.list}`,formData)
+        if(status===200)    {
+            lists[index].pinned=!lists[index].pinned
+            setLists([...lists])
+            pinnedListsRef.current.updatePinnedList(lists[index])
+        }   else if(body['message'])    {
+            showToast(body['message'])
+        }
+      
     }
     const fileSelectedHandler=e=>{
         setPhotoFile(e.target.files[0])
@@ -151,28 +162,27 @@ function Lists(props)   {
         <input type="file" hidden ref={fileRef} onChange={fileSelectedHandler}   />
         {!photoUrl && <div className="row justify-content-center align-items-center List__modal_photo List__modal_photo_div" ><AddPhoto className="List__add_photo_icon" onClick={selectImage} /></div>}
         {photoUrl && <div className="row justify-content-center align-items-center List__modal_photo" style={{backgroundImage: "url("+photoUrl+")", backgroundPosition: 'cover', backgroundSize: 'fill' }} ><AddPhoto className="List__add_photo_icon" onClick={selectImage} /></div>}    
-       <div className="List__modal_body">
-         
-                <div className="List__form_group List__form_input_bg form-group">
-                    <label className="List__label_text" htmlFor="name">
-                        Name
-                    </label>
-                    <Field className="List__input List__form_input_bg form-control" name="name" type="text" />                    
-                </div>
-                <div className="List__form_group text-right">{props.values.name.length}/25</div>
+       <div className="List__modal_body">         
+            <div className="List__form_group List__form_input_bg form-group">
+                <label className="List__label_text" htmlFor="name">
+                    Name
+                </label>
+                <Field className="List__input List__form_input_bg form-control" name="name" type="text" />                    
+            </div>
+            <div className="List__form_group text-right">{props.values.name.length}/25</div>
 
-                <div className="List__form_group List__form_input_bg form-group">
-                    <label className="List__label_text" htmlFor="description">
-                        Description
-                    </label>
-                    <Field className="List__input List__form_input_bg form-control" name="description" type="text"  />
-                </div>    
-                <div className="List__form_group text-right">{props.values.description.length}/100</div>
-                <div className="d-flex justify-content-between">
-                    <div>Make private</div>
-                    <Field type="checkbox" checked={props.values.private} name='private' />
-                </div>
-                <div className="List__form_group List__note">When you make a List private, only you can see it.</div>
+            <div className="List__form_group List__form_input_bg form-group">
+                <label className="List__label_text" htmlFor="description">
+                    Description
+                </label>
+                <Field className="List__input List__form_input_bg form-control" name="description" type="text"  />
+            </div>    
+            <div className="List__form_group text-right">{props.values.description.length}/100</div>
+            <div className="d-flex justify-content-between">
+                <div>Make private</div>
+                <Field type="checkbox" checked={props.values.private} name='private' />
+            </div>
+            <div className="List__form_group List__note">When you make a List private, only you can see it.</div>
                 
             
         
@@ -207,13 +217,13 @@ function Lists(props)   {
                     Edit
                 </div>
             </div>
-            <PinnedLists profile={props.profile} baseUrlListPhoto={apiCalls.baseUrlListPhoto} showToast={showToast} className="Lists__pinned_lists_header"    />  
+            <PinnedLists ref={pinnedListsRef} profile={props.profile} baseUrlListPhoto={apiCalls.baseUrlListPhoto} showToast={showToast} className="Lists__pinned_lists_header"    />  
            
             <div className="Lists__header">Your Lists</div>
             <div className="">
                 {
                     lists.map((list, index)=>(
-                        <List key={list._id} index={index} list={list} profile={list.profile[0]} baseUrlProfilePhoto={apiCalls.baseUrlProfilePhoto} baseUrlListPhoto={apiCalls.baseUrlListPhoto} />
+                        <List key={list._id} index={index} list={list} profile={list.profile[0]} updatePinnedList={updatePinnedList} baseUrlProfilePhoto={apiCalls.baseUrlProfilePhoto} baseUrlListPhoto={apiCalls.baseUrlListPhoto} />
                     ))
                 }
             </div>

@@ -33,7 +33,7 @@ function List(props)    {
                 </div>               
             </div>
             <div className="">
-                {props.list.pinned?<Pinned className="App__icon" />:<PinnedActive className="App__icon" />}
+                {props.list.pinned?<Pinned className="App__icon" onClick={e=>props.updatePinnedList(props.index)} />:<PinnedActive className="App__icon" onClick={e=>props.updatePinnedList(props.index)} />}
             </div>
         </div>
     )

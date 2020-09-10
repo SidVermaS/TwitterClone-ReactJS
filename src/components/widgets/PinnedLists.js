@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, forwardRef, useImperativeHandle } from 'react'
 
 
 
@@ -8,9 +8,26 @@ import APICalls from '../../networks/APICalls'
 
 import '../../css/PinnedLists.css'
 
-function PinnedLists(props)   {
+const PinnedLists=forwardRef((props, ref)=>   {
     const apiCalls=new APICalls({ profile: props.profile })
     const [pinnedLists, setPinnedLists]=useState([])
+    
+    useImperativeHandle(ref, ()=>   ({
+        updatePinnedList(list) {
+            const foundIndex=pinnedLists.findIndex((pinnedList)=>pinnedList._id===list._id)
+            if(list.pinned)   {
+                pinnedLists.push(list)
+            }   else    {
+                pinnedLists.splice(foundIndex, 1)
+            }
+            setPinnedLists([...pinnedLists])
+        }
+    }))
+
+
+    
+
+     
     
     const fetchPinnedLists=async ()=> {
         const {status, body}=await apiCalls.getRequest(`${apiCalls.list}${apiCalls.pinned}${props.profile._id}`)
@@ -21,17 +38,6 @@ function PinnedLists(props)   {
         }   else if(body['message'])    {
             props.showToast(body['message'])
         }
-    }
-    const updatePinnedList=async ()=>   {
-        const formData={
-            _id: props.profile._id,
-
-        }
-        const {status, body}=await apiCalls.patchRequest(`${apiCalls.list}`, formData)
-        if(status===200)    {
-            // pinnedLists[index]
-        }
-
     }
 
     useEffect(()=>  {
@@ -58,6 +64,6 @@ function PinnedLists(props)   {
 
         </div>
     )
-}
+})
 
 export default PinnedLists
