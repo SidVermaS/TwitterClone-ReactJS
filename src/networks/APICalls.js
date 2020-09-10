@@ -16,7 +16,7 @@ class APICalls  {
     login='login/' 
     register='register/'
     tweet='tweet/'
-    profile='profile/'
+    profileUrl='profile/'
     favorite='favorite/'
     list='list/'
     pinned='pinned/'

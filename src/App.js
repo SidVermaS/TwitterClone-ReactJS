@@ -46,7 +46,7 @@ function App(props) {
   },[profile])
   return (
     <div style={{display: "flex"}}>
-      <Sidebar profile={profile}  />
+      {profile && <Sidebar profile={profile}  />}
       <div className="App__main">
         <Switch>       
           <SecuredRoute exact path="/" component={Home} profile={profile} setPagePath={props.setPagePath}></SecuredRoute>
@@ -58,7 +58,7 @@ function App(props) {
           
         </Switch>
       </div>
-      <Options  />
+      {profile && <Options  />}
     </div> 
   )
 }

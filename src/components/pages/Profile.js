@@ -21,7 +21,7 @@ function Profile(props) {
     }
     const fetchProfile=async ()=>{
         
-        const { status, body }=await apiCalls.getRequest(`${apiCalls.profile}?username=${props.match.params.username}&_id=${props.profile._id}`)
+        const { status, body }=await apiCalls.getRequest(`${apiCalls.profileUrl}?username=${props.match.params.username}&_id=${props.profile._id}`)
         if(status===200)    {
             setCurrentProfile(body['profile'][0])
         } else if(status)   {
@@ -56,7 +56,7 @@ function Profile(props) {
                 </div>                   
             </div>
             <hr/>
-            <Tweets profile={props.profile} showToast={showToast} urlType="tweets" />
+            <Tweets currentProfile={currentProfile} profile={props.profile} showToast={showToast} urlType="profile" />
 
 
 

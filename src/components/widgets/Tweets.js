@@ -21,7 +21,9 @@ const Tweets=forwardRef((props,ref)=>  {
   
 
     useEffect((props1)=>  {  
-        setUrl(props.urlType==='home'?`${apiCalls.tweet}?`:props.urlType==='tweets'?`${apiCalls.tweet}${apiCalls.profile}?`:'') 
+        console.log('~~~ url: ',props.urlType)
+        setUrl(props.urlType==='home'?`${apiCalls.tweet}?`:`${apiCalls.tweet}${apiCalls.profileUrl}?profile_id=${props.currentProfile._id}&`) 
+       
         if(url) {  
             fetchTweets()
         }    
