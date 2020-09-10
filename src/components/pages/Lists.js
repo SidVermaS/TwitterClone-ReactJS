@@ -46,7 +46,11 @@ function Lists(props)   {
     const selectImage=()=>  {
         fileRef.current.click()
     }
+    const updatePinnedList=async (index)=>   {
+        
 
+
+    }
     const fileSelectedHandler=e=>{
         setPhotoFile(e.target.files[0])
         

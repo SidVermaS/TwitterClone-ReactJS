@@ -22,7 +22,17 @@ function PinnedLists(props)   {
             props.showToast(body['message'])
         }
     }
+    const updatePinnedList=async ()=>   {
+        const formData={
+            _id: props.profile._id,
 
+        }
+        const {status, body}=await apiCalls.patchRequest(`${apiCalls.list}`, formData)
+        if(status===200)    {
+            // pinnedLists[index]
+        }
+
+    }
 
     useEffect(()=>  {
         fetchPinnedLists()
