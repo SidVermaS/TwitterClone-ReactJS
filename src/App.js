@@ -47,14 +47,14 @@ function App(props) {
   return (
     <div style={{display: "flex"}}>
       {profile && <Sidebar profile={profile}  />}
-      <div className="App__main">
+      <div className={profile?"App__main":'App__main_logged_out'}>
         <Switch>       
-          <SecuredRoute exact path="/" component={Home} profile={profile} setPagePath={props.setPagePath}></SecuredRoute>
-          <SecuredRoute path="/profile/:username" component={Profile} profile={profile} setPagePath={props.setPagePath}></SecuredRoute>
-          <SecuredRoute path="/lists" component={Lists} profile={profile} setPagePath={props.setPagePath}></SecuredRoute>
-          <UnsecuredRoute path="/welcome" component={Welcome} profile={profile} ></UnsecuredRoute>
-          <UnsecuredRoute path="/login" component={Login} profile={profile} ></UnsecuredRoute>
-          <UnsecuredRoute path="/register" component={Register} profile={profile}></UnsecuredRoute>
+          <SecuredRoute exact path="/" component={Home} profile={profile} setPagePath={props.setPagePath} />
+          <SecuredRoute path="/profile/:username" component={Profile} profile={profile} setPagePath={props.setPagePath} />
+          <SecuredRoute path="/lists" component={Lists} profile={profile} setPagePath={props.setPagePath} />
+          <UnsecuredRoute path="/welcome" component={Welcome} profile={profile} />
+          <UnsecuredRoute path="/login" component={Login} profile={profile} />
+          <UnsecuredRoute path="/register" component={Register} profile={profile} />
           
         </Switch>
       </div>

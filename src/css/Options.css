@@ -31,8 +31,19 @@
     color: grey;
     font-size: 15px;
     font-weight: 400;
-
 }
-
-
-
+.Options__content    {
+    background: #f5f8fa;
+    border-radius: 20px;
+    padding: 10px 0px 20px 0px;
+    margin: 10px 0 0 0;
+}
+.Options__whats_happening   {
+    font-size: 19px;
+    font-weight: 800;
+    border-bottom: 1px solid var(--twitter-border);
+    padding: 0 20px 10px 20px;
+}
+.Options__tweet_embeded {
+    padding: 10px 20px 20px 20px;
+}

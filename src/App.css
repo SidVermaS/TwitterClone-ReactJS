@@ -17,6 +17,9 @@ body  {
 .App__main  {
   flex: 0.51;
 }
+.App__main_logged_out  {
+  flex: 1;
+}
 .App__back_icon  {
   width: 24px;
   height: 24px;
