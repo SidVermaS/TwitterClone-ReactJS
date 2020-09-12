@@ -15,15 +15,31 @@ import '../../css/Profile.css'
 function Profile(props) {
     const messageRef=useRef()
     const apiCalls=new APICalls({ profile: props.profile })
-    const [currentProfile, setCurrentProfile]=useState(null), [tabIndex,setTabIndex]=useState(0)
+    const [currentProfile, setCurrentProfile]=useState(null), [tabIndex,setTabIndex]=useState(0), [isFollowed,setIsFollowed]=useState(false)
     const showToast=(message)=>   {
-        // messageRef.current.displayToast(message)
+        messageRef.current.displayToast(message)
+    }
+    const changeFriendship=async (action)=>   {
+        currentProfile.is_followed=!currentProfile.is_followed
+        setIsFollowed(!isFollowed)
+        const formData={
+            _id: props.profile._id,
+            current_profile_id: currentProfile._id,
+            action: action
+        }
+        const { status, body }=await apiCalls.patchRequest(`${apiCalls.profileUrl}${apiCalls.friendship}`, formData)
+        if(status===200)    {
+
+        }   else if(body['message'])    {
+            showToast(body['message'])
+        }
     }
     const fetchProfile=async ()=>{
         
         const { status, body }=await apiCalls.getRequest(`${apiCalls.profileUrl}?username=${props.match.params.username}&_id=${props.profile._id}`)
         if(status===200)    {
             setCurrentProfile(body['profile'][0])
+            setIsFollowed(body['profile'][0]['is_followed'])
         } else if(status)   {
             showToast(body['message'])
         }
@@ -34,7 +50,7 @@ function Profile(props) {
     useEffect((props1)=>  {
         
         fetchProfile()
-    },[tabIndex])
+    },[tabIndex,isFollowed])
     
     return (
         <div className="Profile__bg">
@@ -44,7 +60,7 @@ function Profile(props) {
                     <ArrowLeft className="App__back_icon"  />
                     <span>{currentProfile.name}</span>
                 </div>    
-                <ProfileHeader profile={props.profile} currentProfile={currentProfile} baseUrlProfilePhoto={apiCalls.baseUrlProfilePhoto} baseUrlTweetPhoto={apiCalls.baseUrlTweetPhoto} className="Profile__ProfileHeader"  />
+                <ProfileHeader changeFriendship={changeFriendship} profile={props.profile} currentProfile={currentProfile} isFollowed={isFollowed} baseUrlProfilePhoto={apiCalls.baseUrlProfilePhoto} baseUrlTweetPhoto={apiCalls.baseUrlTweetPhoto} className="Profile__ProfileHeader"  />
     
             <div className="Profile__nav container">
                 <div className="row text-center">

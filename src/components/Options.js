@@ -1,5 +1,5 @@
 import React from 'react'
-import { TwitterTweetEmbed } from 'react-twitter-embed'
+import { TwitterTweetEmbed, TwitterTimelineEmbed, } from 'react-twitter-embed'
 
 
 
@@ -20,7 +20,8 @@ function Options(props) {
             <div className="Options__content">
                 <div className="Options__whats_happening">What’s happening</div>
                 <div className="Options__tweet_embeded">
-                    <TwitterTweetEmbed tweetId={"1285823427002068997"}  />
+                    <TwitterTweetEmbed tweetId={"1304812017119883266"}  />
+                    <TwitterTimelineEmbed sourceType="profile" screenName="sidvermas" options={{height: 400}}    />
                 </div>
 
 
