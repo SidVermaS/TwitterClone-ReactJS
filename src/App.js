@@ -42,8 +42,9 @@ function App(props) {
   
   useEffect((props1)=>{
     props.fetch()
+    // setProfile(JSON.parse(localStorage.getItem('profile')))
     console.log('~~~ App: ',profile)
-  },[profile])
+  },[profile,])
   return (
     <div style={{display: "flex"}}>
       {profile && <Sidebar profile={profile}  />}

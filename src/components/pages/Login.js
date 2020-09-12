@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { Link } from 'react-router-dom'
 import * as yup from 'yup'
 
+
 import { save, fetch } from '../../actions/profileActions'
 import APICalls from '../../networks/APICalls'
 
@@ -15,7 +16,7 @@ function Login(props)    {
     const apiCalls=new APICalls({  })
     const messageRef=useRef()
     useEffect(()=>{
-        console.log('~~~ props: login')
+        console.log('~~~ props: login: ',props.history)
         console.log('~~~ messageRef.current: ',messageRef.current)
     },[])
 
@@ -74,13 +75,14 @@ function Login(props)    {
     async function loginUser(values)    {
         const formData={ username: values.username_or_email, password: values.password }
         const { status, body }=await apiCalls.postRequest(apiCalls.login, formData)        
-
+        
         if(status===200)    {
             console.log(`~~~ au: ${body['profile']}`)
             body['profile']['authorization']=`bearer ${body['profile']['authorization']}`
             props.save(body['profile'])
+            props.history.go('/')
         }
-        if(body['message']) {
+        else if(body['message']) {
             messageRef.current.displayToast(body['message'])
         }
     }
