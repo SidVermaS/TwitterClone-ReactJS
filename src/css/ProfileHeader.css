@@ -18,6 +18,7 @@
 .ProfileHeader__profile_photo   {
     width: 140px;
     height: 140px;
+    object-fit: cover;
     position: relative;
     z-index: 5;
     margin: 150px 0 0 0px;

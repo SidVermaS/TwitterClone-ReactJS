@@ -50,7 +50,7 @@ const PinnedLists=forwardRef((props, ref)=>   {
             <div className="text-center PinnedLists__child">
                 {console.log('pl : ',props1.pinnedList.name)}
                 <div><img src={`${props.baseUrlListPhoto}${props1.pinnedList.photo_url_list}`} className="PinnedLists__thumbnail" /></div>
-                <div>{props1.pinnedList.name.length>6?props1.pinnedList.name.substring(0,6)+'...':props1.pinnedList.name}</div>
+                <div className="PinnedLists__name">{props1.pinnedList.name.length>8?props1.pinnedList.name.substring(0,6)+'...':props1.pinnedList.name}</div>
             </div>
         )
     }

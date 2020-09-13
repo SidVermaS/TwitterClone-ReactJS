@@ -16,6 +16,7 @@ import '../../css/Tweet.css'
 function Tweet(props)    {
     const getDate=(date)=>  {
         date=new Date(date)
+        console.log('~~~ dt: ',date)
         date=`${date.toLocaleString('en-us', { month: 'short' })} ${date.getDay()}`
 
         return date

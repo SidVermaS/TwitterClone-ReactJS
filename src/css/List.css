@@ -29,6 +29,7 @@
     width: 15.5px;
     height: 15.5px;
     border-radius: 30px;
+    /* object-fit: cover; */
 }
 .List__profile_name    {
    font-size: 13.5px;

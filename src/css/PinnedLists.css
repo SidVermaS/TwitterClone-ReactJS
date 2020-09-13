@@ -11,6 +11,9 @@
     height: 72px;
     border-radius: 15px;
 }
+.PinnedLists__name  {
+    font-size: 14px;
+}
 .PinnedLists__no_pinned_list   {
     font-size: 15px;
     color: grey;
