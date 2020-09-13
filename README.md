@@ -9,19 +9,19 @@ In the project directory, you can run:
 ### Screenshots
 
 Screenshot 1
-![Screenshot 1](./screenshots/Screenshot1.jpg)
+![Screenshot 1](./screenshots/Screenshot1.png)
 
 Screenshot 2
-![Screenshot 2](./screenshots/Screenshot2.jpg)
+![Screenshot 2](./screenshots/Screenshot2.png)
 
 Screenshot 3
-![Screenshot 3](./screenshots/Screenshot3.jpg)
+![Screenshot 3](./screenshots/Screenshot3.png)
 
 Screenshot 4
-![Screenshot 4](./screenshots/Screenshot4.jpg)
+![Screenshot 4](./screenshots/Screenshot4.png)
 
 Screenshot 5
-![Screenshot 5](./screenshots/Screenshot5.jpg)
+![Screenshot 5](./screenshots/Screenshot5.png)
 
 
 ### Tech Stacks
